@@ -25,10 +25,12 @@ public class TimeEntryController {
         TimeEntry entry = timeEntryRepository.create(timeEntry);
         return new ResponseEntity<>(entry, HttpStatus.CREATED);
     }
-    @GetMapping
+    @GetMapping()
     public ResponseEntity<List<TimeEntry>> list(){
         return new ResponseEntity<>(timeEntryRepository.list(), HttpStatus.OK);
     }
+
+
     @GetMapping("{id}")
     public ResponseEntity<TimeEntry> read(@PathVariable Long id) {
        TimeEntry entry =  timeEntryRepository.find(id);
